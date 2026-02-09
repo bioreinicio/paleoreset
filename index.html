@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resetea tu cuerpo - 14 Días</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&family=Zilla+Slab:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <style>
+            :root {
+                --fondo-kraft: #f9f7f2;
+                --espresso: #3e2723;
+                --oliva: #556b2f;
+                --terracotta: #a45a52;
+                --beige-arena: #efede7;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: var(--fondo-kraft);
+                font-family: "Montserrat", sans-serif;
+                color: var(--espresso);
+                line-height: 1.6;
+            }
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 40px 20px;
+            }
+            .text-center {
+                text-align: center;
+            }
+            h1,
+            h2,
+            h3 {
+                font-family: "Zilla Slab", serif;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+            .handwritten {
+                font-family: "Caveat", cursive;
+                color: var(--terracotta);
+                font-size: 2.2rem;
+            }
+            .highlight {
+                background: #fff3cd;
+                padding: 0 5px;
+            }
+
+            /* Banner Superior Sticky */
+            .top-banner {
+                background-color: var(--terracotta);
+                /*color: #ffffff;
+                background-color: rgb(255, 152, 0);*/
+                background-color: #fff9e6; /* Amarillo muy suave, casi
+                crema */
+                border: 1px solid #ffe082;
+                text-align: center;
+                padding: 6px;
+                font-weight: bold;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                font-size: 0.9rem;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            /* Placeholders kraft style */
+            .img-placeholder {
+                background: #e9e4d9;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0% auto;
+                border-radius: 20px;
+                color: #888;
+                font-weight: bold;
+                text-align: center;
+            }
+            .img {
+                align-items: center;
+                border-radius: 20px;
+                width: 100%;
+                display: inline;
+                object-fit: cover;
+            }
+
+            /* Botones CTA mejorados */
+            .btn-cta {
+                display: block;
+                background-color: var(--oliva);
+                color: white;
+                padding: 22px 30px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 800;
+                font-size: 1.5rem;
+                margin: 30px auto;
+                text-align: center;
+                box-shadow: 0 11px 24px rgba(85, 107, 47, 0.4);
+                transition: all 0.3s ease;
+                max-width: 600px;
+            }
+            .btn-cta:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 30px rgba(85, 107, 47, 0.5);
+            }
+            .btn-cta small {
+                display: block;
+                font-size: 0.75rem;
+                font-weight: normal;
+                margin-top: 5px;
+                opacity: 0.9;
+            }
+
+            .pulse {
+                animation: pulse-animation 2s infinite;
+            }
+            @keyframes pulse-animation {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            /* Secciones */
+            .section-white {
+                background: white;
+                justify-content: center;
+                padding: 60px 20px;
+                border-radius: 20px;
+                margin: 40px 0;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            }
+            .section-beige {
+                background-color: var(--beige-arena);
+                padding: 60px 0;
+            }
+
+            /* Check-list */
+            .check-list {
+                list-style: none;
+                text-align: left;
+                max-width: 500px;
+                margin: 20px auto;
+            }
+            .check-list li {
+                margin-bottom: 12px;
+                padding-left: 35px;
+                position: relative;
+                font-weight: 600;
+            }
+            .check-list li::before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: var(--oliva);
+                font-weight: 900;
+                font-size: 1.2rem;
+            }
+
+            /* Falsos amigos grid */
+            .falsos-amigos-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 30px;
+                margin-top: 40px;
+            }
+            .falso-amigo-item {
+                text-align: center;
+                padding: 10px;
+            }
+            .falso-amigo-item .emoji {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+
+            /* Bonus box */
+            .bonus-box {
+                border: 3px dashed var(--terracotta);
+                padding: 35px;
+                border-radius: 20px;
+                margin: 40px 0;
+                background: #fff;
+                position: relative;
+            }
+            .bonus-badge {
+                background: var(--terracotta);
+                color: white;
+                padding: 5px 15px;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 0.8rem;
+                position: absolute;
+                top: -15px;
+                left: 20px;
+            }
+
+            /* Stack de valor mejorado (de V2) */
+            .value-stack {
+                background: white;
+                padding: 30px;
+                border: 2px solid var(--espresso);
+                border-radius: 12px;
+                margin: 30px 0;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .value-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #eee;
+                padding: 12px 0;
+                font-size: 0.95rem;
+            }
+            .value-item:last-child {
+                border-bottom: none;
+            }
+            .price-old {
+                text-decoration: line-through;
+                color: #999;
+            }
+
+            /* Precio ancla mejorado */
+            .value-comparison {
+                background: var(--beige-arena);
+                padding: 25px;
+                border-radius: 15px;
+                margin: 30px 0;
+                text-align: center;
+            }
+            .value-comparison p {
+                margin: 8px 0;
+                font-size: 0.95rem;
+            }
+            .value-comparison hr {
+                margin: 15px 0;
+                border: none;
+                border-top: 2px dashed #ccc;
+            }
+            .value-comparison .strike {
+                text-decoration: line-through;
+                color: #999;
+                font-size: 1.1rem;
+            }
+            .value-comparison h3 {
+                color: var(--terracotta);
+                font-size: 2.5rem;
+                margin-top: 10px;
+            }
+
+            /* Testimoniales compactos */
+            .testimonial-box {
+                background: white;
+                padding: 25px 30px;
+                border-left: 5px solid var(--oliva);
+                margin: 25px 0;
+                border-radius: 0 15px 15px 0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            }
+            .testimonial-box p:first-child {
+                font-style: italic;
+                font-size: 1.05rem;
+                margin-bottom: 10px;
+            }
+            .testimonial-box .author {
+                font-weight: bold;
+                color: var(--espresso);
+                font-size: 0.9rem;
+            }
+
+            /* FAQ con details */
+            .faq-section details {
+                background: white;
+                padding: 20px;
+                margin: 15px 0;
+                border-radius: 10px;
+                border: 1px solid #e0e0e0;
+                cursor: pointer;
+            }
+            .faq-section summary {
+                font-weight: bold;
+                font-size: 1.05rem;
+                color: var(--espresso);
+                cursor: pointer;
+                list-style: none;
+            }
+            .faq-section summary::-webkit-details-marker {
+                display: none;
+            }
+            .faq-section summary::before {
+                content: "▶ ";
+                margin-right: 10px;
+                transition: transform 0.3s;
+            }
+            .faq-section details[open] summary::before {
+                transform: rotate(90deg);
+            }
+            .faq-section p {
+                margin-top: 15px;
+                color: #555;
+                line-height: 1.7;
+            }
+
+            /* Garantía destacada */
+            .guarantee-box {
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                border: 2px solid var(--oliva);
+                max-width: 600px;
+                margin: 30px auto;
+                text-align: center;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .btn-cta {
+                    font-size: 1.2rem;
+                    padding: 18px 25px;
+                }
+                h1 {
+                    font-size: 1.8rem;
+                }
+                .handwritten {
+                    font-size: 1.8rem;
+                }
+                .falsos-amigos-grid {
+                    grid-template-columns: 1fr;
+                }
+                .value-comparison h3 {
+                    font-size: 2rem;
+                }
+            }
+
+            .grid-falsos-amigos {
+                display: flex;
+                flex-wrap: wrap; /* Para que en móvil se pongan uno abajo del otro */
+                justify-content: center; /* ESTO centra los elementos horizontalmente */
+                gap: 20px; /* Espacio entre las tarjetas */
+                margin: 0 auto;
+                max-width: 900px;
+            }
+
+            .card-falso {
+                background-color: var(--beige-arena);
+                padding: 30px;
+                border-radius: 12px;
+                flex: 1; /* Hace que crezcan igual */
+                min-width: 250px; /* Evita que se hagan muy flacos en móvil */
+                max-width: 300px; /* Evita que se hagan muy anchos en escritorio */
+                text-align: center;
+                border-bottom: 4px solid var(--terracotta);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            }
+
+            .card-falso h3 {
+                margin: 15px 0;
+                font-size: 1.2rem;
+                color: var(--espresso);
+            }
+
+            /* Estilos para el fragmento de urgencia */
+            .urgencia-container {
+                background-color: #fff9e6; /* Amarillo muy suave, casi
+crema */
+                border: 1px solid #ffe082;
+                padding: 12px 21px;
+                border-radius: 50px; /* Forma de píldora, más moderna */
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                margin: 1px auto;
+            }
+            .urgencia-texto {
+                margin: 0;
+                font-size: 0.95rem;
+                font-weight: 700;
+                color: #856404;
+                font-family: "Montserrat", sans-serif;
+            } /* Animación
+del punto rojo parpadeante */
+            .alerta-pulso {
+                position: relative;
+                width: 10px;
+                height: 10px;
+            }
+            .punto-rojo {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: #d32f2f;
+                border-radius: 50%;
+                z-index: 2;
+            }
+            .pulso-rojo {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: #d32f2f;
+                border-radius: 50%;
+                animation: pulso 1.5s infinite;
+                z-index: 1;
+            }
+            @keyframes pulso {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: scale(3);
+                    opacity: 0;
+                }
+            } /* Cambio de color cuando quedan pocos cupos */
+            .urgencia-critica {
+                color: #b11616 !important;
+                transition: color 0.5s ease;
+            }
+        </style>
+        <!-- Meta Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1395744488693955');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1395744488693955&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Meta Pixel Code -->
+    </head>
+    <body>
+        <!-- Banner Superior Sticky -->
+        <div class="top-banner">
+            ⚠️ PRECIO DE LANZAMIENTO: $17 | sube a $37 | ⏰ Quedan: <span class="cupos-vivos">14</span> cupos 🔥
+        </div>
+
+        <!-- HERO SECTION -->
+        <header class="container text-center">
+            <h1>
+                Los 3 "alimentos saludables" que tu nutricionista te recomendó están
+                <span class="highlight">inflamándote</span> desde el desayuno.
+            </h1>
+
+            <!-- [IMAGEN PRINCIPAL: MOCKUP DEL EBOOK + BARRIGA PLANA ANTES/DESPUÉS]-->
+            <div>
+                <img class="img" src="Images/header.jpg" />
+            </div>
+
+            <p class="handwritten">Elimínalos 14 días. Tu barriga lo notará en 72 horas.</p>
+
+            <p style="margin: 25px 0; font-size: 1.15rem; font-weight: 500">
+                No es falta de disciplina. No es que comas demasiado.<br />
+                Es <strong>"Memoria Inflamatoria"</strong> — tu cuerpo está "acostumbrado" a estar hinchado.<br />
+                Y puedes resetearlo hoy.
+            </p>
+
+            <div class="urgencia-container">
+                <div class="alerta-pulso">
+                    <span class="punto-rojo"></span>
+                    <span class="pulso-rojo"></span>
+                </div>
+                <p class="urgencia-texto">🔥 <span class="cupos-vivos">14</span> cupos disponibles para hoy</p>
+            </div>
+
+            <a href="https://pay.hotmart.com/G104278403R?checkoutMode=10" class="btn-cta pulse">
+                SÍ, QUIERO MI BARRIGA PLANA POR $17
+                <small>(Sube a $37 al finalizar cupos · Ahorro de $20)</small>
+            </a>
+
+            <p style="font-size: 0.85rem; color: #666; margin-top: 0px">
+                ✓ Acceso inmediato por email | ✓ Garantía 7 días sin preguntas<br />
+                <!--    🔥 Quedan <span id="stock" style="font-weight: bold; color: var(--terracotta)">73</span> copias a este
+                precio -->
+            </p>
+        </header>
+
+        <!-- IDENTIFICACIÓN DEL PROBLEMA -->
+        <section class="section-beige">
+            <div class="container">
+                <h2 class="text-center">Si esto te suena familiar...</h2>
+                <div style="font-size: 1.1rem; max-width: 600px; margin: 20px auto">
+                    <p>🕐 <strong>08:00 AM:</strong> Desayunas "saludable": avena, yogurt o pan integral.</p>
+                    <p>🕐 <strong>11:00 AM:</strong> Ya sientes pesadez en el estómago.</p>
+                    <p>🕐 <strong>02:00 PM:</strong> Almuerzas ensalada (porque "estás siendo buena").</p>
+                    <p>
+                        🕐 <strong>05:00 PM:</strong>
+                        <span class="highlight"
+                            >Tu barriga está tan hinchada que tienes que desabrochar el pantalón.</span
+                        >
+                    </p>
+                </div>
+
+                <div>
+                    <img class="img" src="Images/inflamacion.jpg" height="361px" />
+                </div>
+
+                <p style="margin-top: 30px; font-style: italic; text-align: center; font-size: 1.1rem">
+                    Te miras al espejo y piensas:<br />
+                    "¿Por qué sigo hinchada si comí sano todo el día?".
+                </p>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL #1 -->
+        <div class="container">
+            <div class="testimonial-box">
+                <img class="img" src="Images/testimonio1.jpg" />
+                <p>
+                    "El día 4 mi barriga estaba PLANA. Lloré. Tenía 32 años y no recordaba sentirme así desde los 20."
+                </p>
+                <p class="author">— Carla M., Lima · -3.2 kg en 14 días</p>
+            </div>
+        </div>
+
+        <!-- EL PROBLEMA REAL -->
+        <section class="container">
+            <h2 style="color: var(--terracotta); text-align: center">La Anomalía de la Memoria Inflamatoria</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 20px">
+                Cuando consumes alimentos que tu ADN no reconoce (como el gluten moderno o lácteos procesados), tu
+                sistema digestivo activa una <strong>alarma de seguridad</strong>.
+            </p>
+
+            <div
+                style="
+                    background: white;
+                    border-left: 5px solid var(--oliva);
+                    padding: 30px;
+                    margin: 30px 0;
+                    border-radius: 0 15px 15px 0;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+                ">
+                <p>
+                    <strong>Tu cuerpo entra en defensa constante</strong> y empieza a retener agua para "amortiguar" el
+                    daño interno. No estás acumulando grasa; estás atrapando toxinas para protegerte. Por eso comer
+                    menos no funciona: el hambre activa aún más la alarma.
+                </p>
+            </div>
+
+            <h3 class="text-center">La solución: Enviar una señal de "Paz".</h3>
+            <p class="text-center" style="font-size: 1.1rem">
+                Al eliminar los 3 agresores por 14 días, apagas la alarma. Tu cuerpo se siente seguro y, por fin,
+                <strong>suelta el líquido retenido.</strong>
+            </p>
+        </section>
+
+        <section style="background-color: white; padding: 60px 20px">
+            <div class="container">
+                <h2 class="text-center" style="color: var(--terracotta); margin-bottom: 40px">
+                    🚨 Los 3 "Falsos Amigos" que te mantienen inflamada
+                </h2>
+
+                <div class="grid-falsos-amigos">
+                    <div class="card-falso">
+                        <span style="font-size: 3rem">🌾</span>
+                        <h3>El Trigo "Integral"</h3>
+                        <p>
+                            Sus lectinas actúan como pequeñas astillas en tu intestino, activando la retención de
+                            líquidos inmediata.
+                        </p>
+                    </div>
+
+                    <div class="card-falso">
+                        <span style="font-size: 3rem">🥛</span>
+                        <h3>Lácteos "Light"</h3>
+                        <p>La caseína industrial confunde a tu sistema inmune y bloquea la quema de grasa natural.</p>
+                    </div>
+
+                    <div class="card-falso">
+                        <span style="font-size: 3rem">🥤</span>
+                        <h3>Jugos "Naturales"</h3>
+                        <p>Bombas de fructosa líquida que disparan la insulina y te hinchan en cuestión de minutos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL #2 -->
+        <div class="container">
+            <div class="testimonial-box">
+                <img class="img" src="Images/testimonio2.jpg" />
+                <p>"Día 7: vestido que no me quedaba hace 8 meses. Se cerró. Mi esposo dijo: 'Te ves radiante'."</p>
+                <p class="author">— Patricia R. · -4.1 kg</p>
+            </div>
+        </div>
+
+        <!-- BONUS BOX -->
+        <section class="container">
+            <div class="bonus-box">
+                <span class="bonus-badge">REGALO EXCLUSIVO</span>
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3px">
+                    <div style="flex: 1; min-width: 280px">
+                        <h3 style="color: var(--terracotta); margin-bottom: 15px">Guía "Aderezos que Sanan"</h3>
+                        <p>
+                            Aprenderás a hacer la <strong>Mayonesa de 1 Minuto</strong> y el
+                            <strong>Pesto Rojo Express</strong>. No sacrifiques el sabor; el cerebro odia la dieta, pero
+                            ama la comida real deliciosa.
+                        </p>
+                    </div>
+                    <div class="img-placeholder" style="flex: 0.4; min-width: 150px">
+                        <img class="img" src="Images/bonus.jpg" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE COMPRA CON STACK DE VALOR MEJORADO -->
+        <section id="comprar" class="container text-center">
+            <h2 style="font-size: 2rem; margin-bottom: 30px">Todo lo que recibes por $17 USD:</h2>
+
+            <!-- Stack de valor detallado (de V2) -->
+            <div class="value-stack">
+                <div class="value-item">
+                    <span>📖 Ebook: Reset Paleo 14 Días</span>
+                    <span class="price-old">$27.00</span>
+                </div>
+                <div class="value-item">
+                    <span>🥗 Recetario Antiinflamatorio (21 recetas)</span>
+                    <span class="price-old">$15.00</span>
+                </div>
+                <div class="value-item">
+                    <span>🛒 Lista de Compras Inteligente</span>
+                    <span style="color: var(--oliva); font-weight: bold">INCLUIDO</span>
+                </div>
+                <div class="value-item">
+                    <span>📋 Protocolo de Reintroducción (Día 15+)</span>
+                    <span style="color: var(--oliva); font-weight: bold">INCLUIDO</span>
+                </div>
+                <div class="value-item" style="color: var(--terracotta); font-weight: bold">
+                    <span>🎁 BONUS: Guía Aderezos que Sanan</span>
+                    <span>GRATIS</span>
+                </div>
+            </div>
+
+            <!-- Comparación de valor mejorada -->
+            <div class="value-comparison">
+                <p>📊 Consulta médico funcional + análisis: <strong>$600-800</strong></p>
+                <p>👩‍⚕️ Nutricionista + plan personalizado: <strong>$150-300</strong></p>
+                <p>📚 3 libros de dieta paleo: <strong>$45-60</strong></p>
+                <hr />
+                <p class="strike">Valor del programa: $37.00</p>
+                <h3>HOY: $17 USD</h3>
+                <p style="font-size: 0.9rem; margin-top: 10px; color: #666">Menos que 2 cafés de Starbucks</p>
+            </div>
+
+            <div class="urgencia-container">
+                <div class="alerta-pulso">
+                    <span class="punto-rojo"></span>
+                    <span class="pulso-rojo"></span>
+                </div>
+                <p class="urgencia-texto">🔥 <span class="cupos-vivos">14</span> cupos disponibles para hoy</p>
+            </div>
+
+            <!-- CTA Principal -->
+            <a href="https://pay.hotmart.com/G104278403R?checkoutMode=10" class="btn-cta pulse">
+                EMPEZAR MI RESET AHORA
+                <small>✓ Acceso inmediato · ✓ Garantía 7 días · ✓ Pago 100% seguro</small>
+            </a>
+
+            <!-- Garantía destacada -->
+            <div class="guarantee-box">
+                <strong style="font-size: 1.2rem">🛡️ GARANTÍA DE PAZ MENTAL</strong>
+                <p style="margin-top: 15px; line-height: 1.7">
+                    Pruébalo por 7 días. Si en la primera semana no sientes tu ropa más holgada o tu energía despertar,
+                    te devuelvo cada centavo. Sin preguntas.<br />
+                    <strong>El riesgo es 100% mío.</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL #3 -->
+        <div class="container">
+            <div class="testimonial-box">
+                <img class="img" src="Images/testimonio3.png" />
+                <p>"La verdad que no pensé que solo cambiando un poco mi forma de comer podía lograr tanto en año y medio.
+                    Lo mejor es que seguía comiendo rico, las recetas de postres me fascinaron, y sin sentirme culpable
+                    por darme gustos."</p>
+                <p class="author">— Daniela V.</p>
+            </div>
+        </div>
+
+        <!-- FAQ COMPACTA -->
+        <section class="container faq-section">
+            <h2 class="text-center" style="margin-bottom: 30px">Preguntas Frecuentes</h2>
+
+            <details>
+                <summary>¿Voy a pasar hambre?</summary>
+                <p>
+                    No. Comes hasta quedar satisfecha. Este no es un protocolo de restricción calórica, sino de
+                    eliminación de irritantes. Si sientes hambre, aumenta tu porción de proteína o grasas sanas.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Necesito suplementos?</summary>
+                <p>
+                    No. Solo comida real. El objetivo es desinflamar tu cuerpo con alimentos naturales que tu ADN
+                    reconoce.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Cuánto tiempo tendré que cocinar?</summary>
+                <p>
+                    20-30 minutos al día. Todas las recetas son express y hay estrategias de meal prep incluidas para
+                    ahorrar tiempo.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Funciona para vegetarianas?</summary>
+                <p>
+                    Sí, con alternativas vegetales en cada receta. Puedes sustituir las proteínas animales por opciones
+                    plant-based.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Puedo tomar café?</summary>
+                <p>
+                    Sí. Negro o con leche vegetal (almendras, coco). Evita la leche de vaca durante los 14 días del
+                    reset.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Por qué sube el precio?</summary>
+                <p>
+                Aunque el material es de acceso inmediato y digital, mantenemos el precio de lanzamiento
+                ($17 USD) solo para grupos reducidos de 50 personas a la vez.
+                Esto nos permite garantizar que nuestra plataforma de descarga y el servidor de archivos funcionen
+                a máxima velocidad para cada nueva integrante. Una vez que el contador de cupos llega a cero,
+                el sistema cierra automáticamente la oferta de descuento y el precio vuelve a su valor regular de
+                $37 USD para la siguiente fase de usuarios.
+                </p>
+            </details>
+        </section>
+
+        <!-- CIERRE EMOCIONAL -->
+        <section class="container text-center" style="margin-top: 0px">
+            <h2 style="color: var(--terracotta)">🔥 Dos opciones:</h2>
+
+            <div style="margin: 40px 0; max-width: 600px; margin-left: auto; margin-right: auto">
+                <div style="background: #f5f5f5; padding: 25px; border-radius: 15px; margin-bottom: 20px">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px">Opción 1: Despertar mañana igual.</h3>
+                    <p>Hinchada. Cansada. Frustrada. Sin entender qué le pasa a tu cuerpo.</p>
+                </div>
+
+                <div style="background: #e8f5e9; padding: 25px; border-radius: 15px; border: 2px solid var(--oliva)">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--oliva)">
+                        Opción 2: Invertir $17 en 14 días.
+                    </h3>
+                    <p>Entender qué te inflama. Ver tu barriga plana. Recuperar tu energía.</p>
+                </div>
+            </div>
+
+            <p style="font-size: 1.2rem; font-style: italic; margin: 40px 0">
+                Dentro de 14 días...<br />
+                Puedes estar donde estás hoy.<br />
+                O mirándote al espejo pensando:<br />
+                <strong style="color: var(--terracotta); font-size: 1.4rem"
+                    >"¿Por qué nadie me dijo esto antes?"</strong
+                >
+            </p>
+
+            <div class="urgencia-container">
+                <div class="alerta-pulso">
+                    <span class="punto-rojo"></span>
+                    <span class="pulso-rojo"></span>
+                </div>
+                <p class="urgencia-texto">🔥 <span class="cupos-vivos">14</span> cupos disponibles para hoy</p>
+            </div>
+
+            <!-- CTA FINAL -->
+            <a href="https://pay.hotmart.com/G104278403R?checkoutMode=10" class="btn-cta pulse">
+                EMPEZAR AHORA - $17
+                <small
+                    >(Precio sube a $37 al terminar cupos)
+                    <!-- · Quedan <span id="stock-final">73</span> copias) --></small
+                >
+            </a>
+
+            <!-- Post Scriptum -->
+            <div
+                style="
+                    margin-top: 40px;
+                    font-size: 0.9rem;
+                    color: #666;
+                    max-width: 600px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: left;
+                ">
+                <p style="margin-bottom: 10px"><strong>P.D.:</strong> Recuerda: 7 días de garantía. Sin riesgo.</p>
+                <p style="margin-bottom: 10px">
+                    <strong>P.P.D.:</strong> El precio sube a $37 al finalizar los cupos. Esto es lo más barato que
+                    estará.
+                </p>
+
+                <!--
+                <p>
+                    <strong>P.P.P.D.:</strong> Quedan
+                    <span id="stock-ps" style="color: var(--terracotta); font-weight: bold">73</span> copias a $17.
+                    Cuando se acaben, el precio sube automáticamente.
+                </p>
+                -->
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer style="background-color: #efede7; padding: 40px 20px; text-align: center; border-top: 1px solid #ddd">
+            <div style="max-width: 800px; margin: 0 auto; font-size: 11px; color: #777; line-height: 1.4">
+                <p>© 2026 Bioreinicio - Todos los derechos reservados.</p>
+                <br />
+                <p>
+                    <strong>Aviso Legal:</strong> Los resultados pueden variar según cada persona. Este producto es
+                    informativo y no sustituye consejo médico profesional. Consulta con tu médico antes de hacer cambios
+                    significativos en tu alimentación, especialmente si tienes condiciones médicas preexistentes o tomas
+                    medicamentos. Este sitio no forma parte del sitio web de Facebook o Facebook Inc. Además, este sitio
+                    NO está respaldado por Facebook de ninguna manera. FACEBOOK es una marca registrada de FACEBOOK,
+                    Inc.
+                </p>
+            </div>
+        </footer>
+
+        <!-- SCRIPTS -->
+        <script>
+(function() {
+        // --- CONFIGURACIÓN ---
+        const STOCK_INICIAL = 14;
+        const MINIMO_STOCK = 4;
+        const MINUTOS_POR_VENTA = 45; // Cada cuántos minutos (aprox) baja un cupo mientras no está
+
+        // 1. Obtener datos guardados
+        let cuposGlobales = localStorage.getItem('paleo_cupos') 
+                            ? parseInt(localStorage.getItem('paleo_cupos')) 
+                            : STOCK_INICIAL;
+        
+        let ultimaVez = localStorage.getItem('paleo_ultimo_acceso');
+        let ahora = Date.now();
+
+        // 2. LÓGICA DE TIEMPO TRANSCURRIDO
+        if (ultimaVez) {
+            let diferenciaMinutos = Math.floor((ahora - parseInt(ultimaVez)) / 1000 / 60);
+            
+            if (diferenciaMinutos >= MINUTOS_POR_VENTA) {
+                let cuposAPerder = Math.floor(diferenciaMinutos / MINUTOS_POR_VENTA);
+                cuposGlobales = Math.max(MINIMO_STOCK, cuposGlobales - cuposAPerder);
+            }
+        }
+
+        // Guardar acceso actual y stock actualizado
+        localStorage.setItem('paleo_ultimo_acceso', ahora.toString());
+        localStorage.setItem('paleo_cupos', cuposGlobales.toString());
+
+        function renderCupos() {
+            const todosLosDisplays = document.querySelectorAll('.cupos-vivos');
+            todosLosDisplays.forEach(display => {
+                display.textContent = cuposGlobales;
+                if (cuposGlobales <= 5) {
+                    display.parentElement.classList.add('urgencia-critica');
+                }
+            });
+        }
+
+        renderCupos();
+
+        // 3. LÓGICA DE BAJADA EN VIVO (Mientras la página está abierta)
+        function actualizarEnVivo() {
+            if (Math.random() > 0.6 && cuposGlobales > MINIMO_STOCK) {
+                cuposGlobales--;
+                localStorage.setItem('paleo_cupos', cuposGlobales.toString());
+                localStorage.setItem('paleo_ultimo_acceso', Date.now().toString());
+                renderCupos();
+            }
+            
+            // Revisa cada 15-40 segundos
+            const proxima = Math.floor(Math.random() * (40000 - 15000 + 1)) + 15000;
+            setTimeout(actualizarEnVivo, proxima);
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(actualizarEnVivo, 5000);
+        });
+    })();
+        </script>
+    </body>
+</html>
